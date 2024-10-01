@@ -23,6 +23,40 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+-- "PERTSONAK" taula
+
+CREATE TABLE `PERTSONAK` (
+  `izenAbizenak` varchar(255) NOT NULL,
+  `NAN` varchar(10) NOT NULL,
+  `telefono` INT(9) NOT NULL,
+  `jaiotzeData` VARCHAR(10) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  PRIMARY KEY (`NAN`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- "ERABILTZAILEAK" taula
+
+CREATE TABLE `ERABILTZAILEAK` (
+  `erabiltzaile` varchar(255) NOT NULL,
+  `pasahitz` CHAR(60) NOT NULL,
+  `NAN` varchar(10) NOT NULL,
+  PRIMARY KEY (`erabiltzailea`)
+  FOREIGN KEY (`NAN`) REFERENCES `PERTSONAK`(`NAN`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- "INBENTARIOA" taula
+
+CREATE TABLE `INBENTARIOA` (
+  `izena` varchar(255) NOT NULL,
+  `marka` varchar(255) NOT NULL,
+  `modelo` varchar(255) NOT NULL,
+  `serieZenb` varchar(255) NOT NULL,
+  `kokalekua` varchar(255),
+  PRIMARY KEY (`serieZenbakia`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
 --
 -- Estructura de tabla para la tabla `usuarios`
 --
